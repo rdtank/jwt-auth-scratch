@@ -1,4 +1,4 @@
-import { NextFunction } from "express";
+import { NextFunction, Request, Response } from "express";
 import { UnauthorizedError } from "../errors/AppError";
 import { verifyAccessToken } from "../lib/tokens";
 
