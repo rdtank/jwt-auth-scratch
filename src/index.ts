@@ -1,17 +1,9 @@
-import cookieParser from "cookie-parser";
-import express from "express";
-import { authRouter, meRouter } from "./routes";
-
-const app = express();
-
-app.use(express.json());
-app.use(cookieParser());
-
-app.use("/auth", authRouter);
-app.use("/user", meRouter);
+import { createApp } from "./app";
+import { logger } from "./lib/logger";
 
 const PORT = 3000;
+const app = createApp();
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  logger.info({ port: PORT }, "Server is running");
 });
